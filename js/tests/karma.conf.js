@@ -33,7 +33,8 @@ const frameworks = [
 
 const plugins = [
   'karma-jasmine',
-  'karma-rollup-preprocessor'
+  'karma-rollup-preprocessor',
+  "karma-requirejs"
 ]
 
 const reporters = ['dots']
