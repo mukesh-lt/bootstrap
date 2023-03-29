@@ -31,7 +31,6 @@ const frameworks = [
   'requirejs'
 ]
 
-
 const plugins = [
   'karma-jasmine',
   'karma-rollup-preprocessor'
