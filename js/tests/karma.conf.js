@@ -144,7 +144,7 @@ if (LAMBDATEST) {
     browsers.lambdaTest[key].retryLimit = 2
   }
 
-  plugins.push('karma-webdriver-launcher', 'karma-jasmine', 'karma-jasmine-html-reporter')
+  plugins.push('karma-webdriver-launcher', 'karma-jasmine-html-reporter')
   config.customLaunchers = browsers.lambdaTest
   config.browsers = Object.keys(browsers.lambdaTest)
   reporters.push('kjhtml')
