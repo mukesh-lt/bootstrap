@@ -27,7 +27,8 @@ const webdriverConfigMobile = {
 }
 
 const frameworks = [
-  'jasmine'
+  'jasmine',
+  'requirejs'
 ]
 
 const plugins = [
