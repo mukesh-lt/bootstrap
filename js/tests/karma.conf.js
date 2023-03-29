@@ -71,6 +71,10 @@ const config = {
   browserDisconnectTolerance: 3,
   browserDisconnectTimeout: 90_000,
   browserNoActivityTimeout: 90_000,
+  flags: [
+    '--disable-gpu',
+    '--no-sandbox'
+  ],
   concurrency: Number.POSITIVE_INFINITY,
   client: {
     clearContext: false
