@@ -67,10 +67,10 @@ const config = {
   colors: true,
   autoWatch: false,
   singleRun: true,
-  captureTimeout: 180_000,
+  captureTimeout: 90_000,
   browserDisconnectTolerance: 3,
-  browserDisconnectTimeout: 180_000,
-  browserNoActivityTimeout: 180_000,
+  browserDisconnectTimeout: 90_000,
+  browserNoActivityTimeout: 90_000,
   concurrency: Number.POSITIVE_INFINITY,
   client: {
     clearContext: false
@@ -127,7 +127,6 @@ if (LAMBDATEST) {
       browsers.lambdaTest[key].accessKey = ENV.LT_ACCESS_KEY
       browsers.lambdaTest[key].tunnel = true
       browsers.lambdaTest[key].tunnelName = process.env.LT_TUNNEL_NAME || 'jasmine'
-      browsers.lambdaTest[key].pseudoActivityInterval = 15_000 // 5000 ms heartbeat
     } else {
       browsers.lambdaTest[key].config = webdriverConfig
       browsers.lambdaTest[key]['LT:Options'].username = ENV.LT_USERNAME
@@ -135,7 +134,6 @@ if (LAMBDATEST) {
       browsers.lambdaTest[key]['LT:Options'].tunnel = true
       browsers.lambdaTest[key]['LT:Options'].tunnelName = process.env.LT_TUNNEL_NAME || 'jasmine'
       browsers.lambdaTest[key]['LT:Options'].plugin = 'bootstrap-karma'
-      browsers.lambdaTest[key]['LT:Options'].pseudoActivityInterval = 15_000 // 5000 ms heartbeat
     }
 
     browsers.lambdaTest[key].retryLimit = 2
