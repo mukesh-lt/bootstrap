@@ -28,13 +28,11 @@ const webdriverConfigMobile = {
 
 const frameworks = [
   'jasmine',
-  'requirejs'
 ]
 
 const plugins = [
   'karma-jasmine',
-  'karma-rollup-preprocessor',
-  "karma-requirejs"
+  'karma-rollup-preprocessor'
 ]
 
 const reporters = ['dots']
@@ -73,11 +71,7 @@ const config = {
   browserDisconnectTolerance: 3,
   browserDisconnectTimeout: 90_000,
   browserNoActivityTimeout: 90_000,
-  flags: [
-    '--disable-gpu',
-    '--no-sandbox'
-  ],
-  concurrency: Number.POSITIVE_INFINITY,
+  concurrency: 5,
   client: {
     clearContext: false
   },
@@ -135,6 +129,7 @@ if (LAMBDATEST) {
       browsers.lambdaTest[key].console = true
       browsers.lambdaTest[key].network = true
       browsers.lambdaTest[key].tunnelName = process.env.LT_TUNNEL_NAME || 'jasmine'
+      browsers.lambdaTest[key].pseudoActivityInterval = 5_000 // 5000 ms heartbeat
     } else {
       browsers.lambdaTest[key].config = webdriverConfig
       browsers.lambdaTest[key]['LT:Options'].username = ENV.LT_USERNAME
@@ -143,7 +138,7 @@ if (LAMBDATEST) {
       browsers.lambdaTest[key]['LT:Options'].console = true
       browsers.lambdaTest[key]['LT:Options'].network = true
       browsers.lambdaTest[key]['LT:Options'].tunnelName = process.env.LT_TUNNEL_NAME || 'jasmine'
-      browsers.lambdaTest[key]['LT:Options'].plugin = 'bootstrap-karma'
+      browsers.lambdaTest[key]['LT:Options'].pseudoActivityInterval = 5_000 // 5000 ms heartbeat
     }
 
     browsers.lambdaTest[key].retryLimit = 2
