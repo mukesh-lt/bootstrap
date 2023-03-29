@@ -130,12 +130,16 @@ if (LAMBDATEST) {
       browsers.lambdaTest[key].user = ENV.LT_USERNAME
       browsers.lambdaTest[key].accessKey = ENV.LT_ACCESS_KEY
       browsers.lambdaTest[key].tunnel = true
+      browsers.lambdaTest[key].console = true
+      browsers.lambdaTest[key].network = true
       browsers.lambdaTest[key].tunnelName = process.env.LT_TUNNEL_NAME || 'jasmine'
     } else {
       browsers.lambdaTest[key].config = webdriverConfig
       browsers.lambdaTest[key]['LT:Options'].username = ENV.LT_USERNAME
       browsers.lambdaTest[key]['LT:Options'].accessKey = ENV.LT_ACCESS_KEY
       browsers.lambdaTest[key]['LT:Options'].tunnel = true
+      browsers.lambdaTest[key]['LT:Options'].console = true
+      browsers.lambdaTest[key]['LT:Options'].network = true
       browsers.lambdaTest[key]['LT:Options'].tunnelName = process.env.LT_TUNNEL_NAME || 'jasmine'
       browsers.lambdaTest[key]['LT:Options'].plugin = 'bootstrap-karma'
     }
