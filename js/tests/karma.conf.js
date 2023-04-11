@@ -26,7 +26,7 @@ const webdriverConfigMobile = {
 }
 
 const frameworks = [
-  'jasmine'
+  'jasmine',
 ]
 
 const plugins = [
@@ -71,6 +71,7 @@ const config = {
   browserDisconnectTimeout: 180_000,
   browserNoActivityTimeout: 180_000,
   concurrency: Number.POSITIVE_INFINITY,
+
   client: {
     clearContext: false,
     jasmine: {
