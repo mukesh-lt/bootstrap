@@ -1,4 +1,3 @@
-/* eslint-env node */
 
 'use strict'
 
@@ -8,7 +7,7 @@ const { babel } = require('@rollup/plugin-babel')
 const istanbul = require('rollup-plugin-istanbul')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const replace = require('@rollup/plugin-replace')
-const { browsers } = require('./browsers')
+const { browsers } = require('./browsers.js')
 
 const ENV = process.env
 const LAMBDATEST = Boolean(ENV.LAMBDATEST)
@@ -67,13 +66,17 @@ const config = {
   colors: true,
   autoWatch: false,
   singleRun: true,
-  captureTimeout: 90_000,
+  captureTimeout: 180_000,
   browserDisconnectTolerance: 3,
-  browserDisconnectTimeout: 90_000,
-  browserNoActivityTimeout: 90_000,
-  concurrency: 5,
+  browserDisconnectTimeout: 180_000,
+  browserNoActivityTimeout: 180_000,
+  concurrency: Number.POSITIVE_INFINITY,
+
   client: {
-    clearContext: false
+    clearContext: false,
+    jasmine: {
+      timeoutInterval: 20_000
+    }
   },
   files: [
     'node_modules/hammer-simulator/index.js',
@@ -126,25 +129,22 @@ if (LAMBDATEST) {
       browsers.lambdaTest[key].user = ENV.LT_USERNAME
       browsers.lambdaTest[key].accessKey = ENV.LT_ACCESS_KEY
       browsers.lambdaTest[key].tunnel = true
-      browsers.lambdaTest[key].console = true
-      browsers.lambdaTest[key].network = true
       browsers.lambdaTest[key].tunnelName = process.env.LT_TUNNEL_NAME || 'jasmine'
-      browsers.lambdaTest[key].pseudoActivityInterval = 5_000 // 5000 ms heartbeat
+      browsers.lambdaTest[key].pseudoActivityInterval = 15_000 // 5000 ms heartbeat
     } else {
       browsers.lambdaTest[key].config = webdriverConfig
       browsers.lambdaTest[key]['LT:Options'].username = ENV.LT_USERNAME
       browsers.lambdaTest[key]['LT:Options'].accessKey = ENV.LT_ACCESS_KEY
       browsers.lambdaTest[key]['LT:Options'].tunnel = true
-      browsers.lambdaTest[key]['LT:Options'].console = true
-      browsers.lambdaTest[key]['LT:Options'].network = true
       browsers.lambdaTest[key]['LT:Options'].tunnelName = process.env.LT_TUNNEL_NAME || 'jasmine'
-      browsers.lambdaTest[key]['LT:Options'].pseudoActivityInterval = 5_000 // 5000 ms heartbeat
+      browsers.lambdaTest[key]['LT:Options'].plugin = 'bootstrap-karma'
+      browsers.lambdaTest[key]['LT:Options'].pseudoActivityInterval = 15_000 // 5000 ms heartbeat
     }
 
-    browsers.lambdaTest[key].retryLimit = 2
+    browsers.lambdaTest[key].retryLimit = 3
   }
 
-  plugins.push('karma-webdriver-launcher', 'karma-jasmine-html-reporter')
+  plugins.push('karma-webdriver-launcher', 'karma-jasmine', 'karma-jasmine-html-reporter')
   config.customLaunchers = browsers.lambdaTest
   config.browsers = Object.keys(browsers.lambdaTest)
   reporters.push('kjhtml')
@@ -155,7 +155,7 @@ if (LAMBDATEST) {
     accessKey: ENV.BROWSER_STACK_ACCESS_KEY,
     build: `bootstrap-${ENV.GITHUB_SHA ? `${ENV.GITHUB_SHA.slice(0, 7)}-` : ''}${new Date().toISOString()}`,
     project: 'Bootstrap',
-    retryLimit: 2
+    retryLimit: 3
   }
   plugins.push('karma-browserstack-launcher', 'karma-jasmine-html-reporter')
   config.customLaunchers = browsers.browserStack

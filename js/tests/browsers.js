@@ -1,5 +1,6 @@
-/* eslint-env node */
 /* eslint-disable camelcase */
+
+'use strict'
 
 const browsers = {
   lambdaTest: {
@@ -52,11 +53,11 @@ const browsers = {
         platformName: 'Windows 10'
       }
     },
-    iphone7: {
+    iphone11: {
       platformName: 'ios',
-      platformVersion: '12',
+      platformVersion: '15',
       browserName: 'Safari',
-      deviceName: 'iPhone 7',
+      deviceName: 'iPhone 13',
       isRealMobile: true
     },
     iphone14: {
@@ -66,11 +67,11 @@ const browsers = {
       deviceName: 'iPhone 14',
       isRealMobile: true
     },
-    galaxyS22: {
+    pixel6: {
       platformName: 'android',
       platformVersion: '12',
       browserName: 'Chrome',
-      deviceName: 'Galaxy S22 5G',
+      deviceName: 'Pixel 6',
       isRealMobile: true
     }
   },

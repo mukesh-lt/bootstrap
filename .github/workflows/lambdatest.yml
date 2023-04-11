@@ -17,7 +17,7 @@ permissions:
 jobs:
   lambdatest:
     runs-on: ubuntu-latest
-    if: github.repository == 'mukesh-lt/bootstrap'
+if: github.repository == 'mukesh-lt/bootstrap'
     timeout-minutes: 30
 
     steps:
