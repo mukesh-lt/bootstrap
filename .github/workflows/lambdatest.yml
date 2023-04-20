@@ -1,9 +1,10 @@
 name: LambdaTest
 
 on:
-  release:
-     types: [published]
-  workflow_dispatch:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - '**'
 
 env:
   FORCE_COLOR: 2
