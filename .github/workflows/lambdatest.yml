@@ -6,6 +6,8 @@ on:
       - "**"
       - "!dependabot/**"
   workflow_dispatch:
+    branches:
+      - "**
 
 env:
   FORCE_COLOR: 2
@@ -17,7 +19,7 @@ permissions:
 jobs:
   lambdatest:
     runs-on: ubuntu-latest
-    if: github.repository == 'twbs/bootstrap'
+    if: github.repository == 'mukesh-lt/bootstrap'
     timeout-minutes: 30
 
     steps:
