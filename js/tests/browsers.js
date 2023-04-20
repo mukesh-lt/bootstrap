@@ -34,7 +34,7 @@ const browsers = {
     },
     firefoxWin10: {
       browserName: 'Firefox',
-      browserVersion: '60',
+      browserVersion: '104',
       'LT:Options': {
         platformName: 'Windows 10'
       }
