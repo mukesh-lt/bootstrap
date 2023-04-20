@@ -11,7 +11,8 @@ const tunnelArguments = {
   user: process.env.LT_USERNAME,
   key: process.env.LT_ACCESS_KEY,
   tunnelName: process.env.LT_TUNNEL_NAME || 'jasmine',
-  logFile: 'local.log'
+  logFile: 'local.log',
+  v: true
 }
 
 if (process.env.LAMBDATEST === 'true') {
