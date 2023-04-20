@@ -3,6 +3,7 @@ name: LambdaTest
 on:
   release:
      types: [published]
+  workflow_dispatch:
 
 env:
   FORCE_COLOR: 2
