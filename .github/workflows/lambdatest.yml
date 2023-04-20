@@ -5,14 +5,10 @@ on:
     branches:
       - "**"
       - "!dependabot/**"
-  workflow_dispatch:
-    branches:
-      - "**"
-      - "!dependabot/**"
 
 env:
   FORCE_COLOR: 2
-  NODE: 18
+  NODE: 19
 
 permissions:
   contents: read
