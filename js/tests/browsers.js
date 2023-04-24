@@ -58,21 +58,24 @@ const browsers = {
       platformVersion: '15',
       browserName: 'Safari',
       deviceName: 'iPhone 13',
-      isRealMobile: true
+      isRealMobile: true,
+      idleTimeout: 600
     },
     iphone14: {
       platformName: 'ios',
       platformVersion: '16',
       browserName: 'Safari',
       deviceName: 'iPhone 12 Pro',
-      isRealMobile: true
+      isRealMobile: true,
+      idleTimeout: 600
     },
     pixel6: {
       platformName: 'android',
       platformVersion: '12',
       browserName: 'Chrome',
       deviceName: 'Pixel 6',
-      isRealMobile: true
+      isRealMobile: true,
+      idleTimeout: 600
     }
   },
   browserStack: {
