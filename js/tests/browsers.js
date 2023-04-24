@@ -53,7 +53,7 @@ const browsers = {
         platformName: 'Windows 10'
       }
     },
-    iphone11: {
+    iphone13: {
       platformName: 'ios',
       platformVersion: '15',
       browserName: 'Safari',
@@ -64,7 +64,7 @@ const browsers = {
       platformName: 'ios',
       platformVersion: '16',
       browserName: 'Safari',
-      deviceName: 'iPhone 14',
+      deviceName: 'iPhone 12 Pro',
       isRealMobile: true
     },
     pixel6: {
