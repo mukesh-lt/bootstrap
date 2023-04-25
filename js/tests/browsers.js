@@ -143,7 +143,7 @@ const browsers = {
       platformName: 'android',
       platformVersion: '12',
       browserName: 'Chrome',
-      deviceName: 'Pixel 6',
+      deviceName: 'Pixel 6 Pro',
       isRealMobile: true
     }
   }
