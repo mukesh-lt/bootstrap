@@ -34,7 +34,7 @@ const browsers = {
     },
     firefoxWin10: {
       browserName: 'Firefox',
-      browserVersion: '60',
+      browserVersion: '70',
       'LT:Options': {
         platformName: 'Windows 10'
       }
@@ -53,26 +53,29 @@ const browsers = {
         platformName: 'Windows 10'
       }
     },
-    iphone11: {
+    iphone13: {
       platformName: 'ios',
       platformVersion: '15',
       browserName: 'Safari',
       deviceName: 'iPhone 13',
-      isRealMobile: true
+      isRealMobile: true,
+      idleTimeout: 600
     },
     iphone14: {
       platformName: 'ios',
       platformVersion: '16',
       browserName: 'Safari',
-      deviceName: 'iPhone 14',
-      isRealMobile: true
+      deviceName: 'iPhone 12 Pro',
+      isRealMobile: true,
+      idleTimeout: 600
     },
     pixel6: {
       platformName: 'android',
       platformVersion: '12',
       browserName: 'Chrome',
       deviceName: 'Pixel 6',
-      isRealMobile: true
+      isRealMobile: true,
+      idleTimeout: 600
     }
   },
   browserStack: {
