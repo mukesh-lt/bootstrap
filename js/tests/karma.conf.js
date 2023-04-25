@@ -70,6 +70,7 @@ const config = {
   browserDisconnectTolerance: 3,
   browserDisconnectTimeout: 180_000,
   browserNoActivityTimeout: 180_000,
+  retryLimit: 3,
   concurrency: 5,
   client: {
     clearContext: false,
@@ -144,8 +145,6 @@ if (LAMBDATEST) {
       browsers.lambdaTest[key]['LT:Options'].tunnelName = ENV.LT_TUNNEL_NAME || 'jasmine'
       browsers.lambdaTest[key]['LT:Options'].pseudoActivityInterval = 5000 // 5000 ms heartbeat
     }
-
-    browsers.lambdaTest[key].retryLimit = 3
   }
 
   plugins.push('karma-webdriver-launcher', 'karma-jasmine-html-reporter')
