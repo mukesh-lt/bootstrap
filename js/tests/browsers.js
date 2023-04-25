@@ -136,14 +136,14 @@ const browsers = {
       platformName: 'ios',
       platformVersion: '16',
       browserName: 'Safari',
-      deviceName: 'iPhone 14',
+      deviceName: 'iPhone.*',
       isRealMobile: true
     },
     pixel6: {
       platformName: 'android',
       platformVersion: '12',
       browserName: 'Chrome',
-      deviceName: 'Pixel 6 Pro',
+      deviceName: 'Pixel.*',
       isRealMobile: true
     }
   }

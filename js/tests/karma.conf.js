@@ -69,7 +69,7 @@ const config = {
   captureTimeout: 180_000,
   browserDisconnectTolerance: 3,
   browserDisconnectTimeout: 180_000,
-  browserNoActivityTimeout: 180_000,
+  browserNoActivityTimeout: 400_000,
   retryLimit: 3,
   concurrency: 5,
   client: {
