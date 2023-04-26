@@ -120,6 +120,7 @@ const config = {
 
 if (LAMBDATEST) {
   config.hostname = 'localhost.lambdatest.com'
+  config.captureTimeout = 600_000
 
   for (const key of Object.keys(browsers.lambdaTest)) {
     browsers.lambdaTest[key].base = 'WebDriver'
